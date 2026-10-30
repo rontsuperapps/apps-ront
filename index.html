@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>404 - Halaman tidak ditemukan | Ront Super Apps</title>
+<style>
+  :root {
+    --bg: #e7edf0;
+    --ink: #14232c;
+    --muted: #4d6270;
+    --body: #fbfcfc;
+    --body-edge: #c5d0d6;
+    --panel: #1b2b35;
+    --led-off: #9fb0ba;
+    --ok: #1fa65a;
+    --los: #d93a2b;
+    --fiber: #f0b400;
+    --btn-bg: #14232c;
+    --btn-ink: #ffffff;
+    --focus: #0b6bcb;
+    color-scheme: light dark;
+  }
+  :root:not([data-theme="light"]) {}
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101b22;
+      --ink: #e8f0f4;
+      --muted: #9db2bf;
+      --body: #22343f;
+      --body-edge: #35505f;
+      --panel: #0c151b;
+      --led-off: #4a6272;
+      --ok: #35d47c;
+      --los: #ff5a47;
+      --fiber: #ffc933;
+      --btn-bg: #e8f0f4;
+      --btn-ink: #101b22;
+      --focus: #6db6ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.55;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  main {
+    width: 100%;
+    max-width: 980px;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .device { width: 100%; height: auto; display: block; }
+  .brand {
+    margin: 0 0 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.01em;
+  }
+  h1 {
+    margin: 0 0 14px;
+    font-size: clamp(2rem, 4.6vw, 3.1rem);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .lead {
+    margin: 0 0 8px;
+    max-width: 44ch;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+  .path {
+    display: inline-block;
+    max-width: 100%;
+    margin: 6px 0 28px;
+    padding: 6px 12px;
+    border: 1px solid var(--body-edge);
+    border-radius: 6px;
+    background: var(--body);
+    font-family: ui-monospace, "SF Mono", Consolas, "Liberation Mono", monospace;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    appearance: none;
+    display: inline-block;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 2px solid var(--btn-bg);
+    font: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .12s ease;
+  }
+  .btn.primary { background: var(--btn-bg); color: var(--btn-ink); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+  /* LED: hanya LOS yang berkedip, sebagai satu-satunya gerakan di halaman */
+  .led-ok { fill: var(--ok); }
+  .led-off { fill: var(--led-off); }
+  .led-los { fill: var(--los); animation: los 1.2s steps(1, end) infinite; }
+  .glow { fill: var(--los); opacity: .25; animation: los-glow 1.2s steps(1, end) infinite; }
+  @keyframes los { 0%, 55% { opacity: 1; } 56%, 100% { opacity: .15; } }
+  @keyframes los-glow { 0%, 55% { opacity: .28; } 56%, 100% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .led-los, .glow { animation: none; }
+    .btn { transition: none; }
+  }
+
+  @media (max-width: 760px) {
+    main { grid-template-columns: 1fr; gap: 28px; }
+    .device { max-width: 420px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <svg class="device" viewBox="0 0 460 420" role="img"
+       aria-label="Ilustrasi perangkat ONT dengan lampu LOS merah menyala dan kabel fiber optik terlepas">
+    <!-- bayangan -->
+    <ellipse cx="230" cy="338" rx="150" ry="10" fill="#000" opacity=".12"/>
+    <!-- badan ONT -->
+    <rect x="70" y="40" width="320" height="290" rx="22" fill="var(--body)" stroke="var(--body-edge)" stroke-width="3"/>
+    <!-- panel tampilan -->
+    <rect x="98" y="68" width="264" height="118" rx="12" fill="var(--panel)"/>
+    <text x="230" y="150" text-anchor="middle" font-family="ui-monospace, Consolas, monospace"
+          font-size="78" font-weight="700" fill="var(--los)" letter-spacing="4">404</text>
+    <text x="230" y="174" text-anchor="middle" font-family="ui-monospace, Consolas, monospace"
+          font-size="13" fill="#9db2bf">halaman tidak ditemukan</text>
+    <!-- LED -->
+    <g font-family="'Segoe UI', system-ui, sans-serif" font-size="14" fill="var(--muted)" text-anchor="middle">
+      <circle cx="122" cy="226" r="9" class="led-ok"/>
+      <text x="122" y="255">Power</text>
+
+      <circle cx="198" cy="226" r="9" class="led-ok"/>
+      <text x="198" y="255">PON</text>
+
+      <circle cx="274" cy="226" r="17" class="glow"/>
+      <circle cx="274" cy="226" r="9" class="led-los"/>
+      <text x="274" y="255">LOS</text>
+
+      <circle cx="338" cy="226" r="9" class="led-off"/>
+      <text x="338" y="255">Internet</text>
+    </g>
+    <!-- port serat optik -->
+    <rect x="200" y="292" width="60" height="22" rx="4" fill="var(--panel)"/>
+    <rect x="210" y="296" width="40" height="8" rx="2" fill="var(--led-off)" opacity=".5"/>
+    <!-- kabel fiber terlepas -->
+    <path d="M 230 314 C 230 350, 330 340, 340 372" fill="none" stroke="var(--fiber)" stroke-width="7" stroke-linecap="round"/>
+    <rect x="331" y="366" width="18" height="30" rx="3" fill="var(--fiber)" transform="rotate(-8 340 381)"/>
+    <rect x="336" y="392" width="8" height="12" rx="2" fill="var(--ink)" transform="rotate(-8 340 398)"/>
+  </svg>
+
+  <section>
+    <p class="brand">Ront Super Apps</p>
+    <h1>Halaman tidak ditemukan</h1>
+    <p class="lead">Seperti lampu LOS yang menyala, sambungan ke halaman ini terputus. Alamatnya mungkin salah ketik, sudah dipindah, atau sudah dihapus.</p>
+    <span class="path" id="path">/</span>
+    <div class="actions">
+      <a class="btn primary" href="/">Kembali ke beranda</a>
+      <button class="btn ghost" type="button" id="back">Kembali ke halaman sebelumnya</button>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function () {
+    var pathEl = document.getElementById('path');
+    try {
+      pathEl.textContent = location.pathname + location.search;
+    } catch (e) {}
+
+    var back = document.getElementById('back');
+    back.addEventListener('click', function () {
+      if (history.length > 1 && document.referrer) {
+        history.back();
+      } else {
+        location.href = '/';
+      }
+    });
+  })();
+</script>
+</body>
+</html>
